@@ -1,13 +1,13 @@
 import r_w_todos
 import FreeSimpleGUI as sg
-import time
+# import time
 
 sg.theme("Black")
 
-clock = sg.Text("", key="clock")
+# clock = sg.Text("", key="clock")
 label = sg.Text("Type in a to-do")
 input_box = sg.InputText(tooltip="Enter to-do", key="todo")
-add_button = sg.Button("Add", size=10)
+add_button = sg.Button(size=10, image_filename="add.png", tooltip="Add todo", key="Add")
 list_box = sg.Listbox(values=r_w_todos.get_todos(),
                       key="todos",
                       enable_events=True,
@@ -17,7 +17,7 @@ complete_button = sg.Button("Complete")
 exit_button = sg.Button("Exit")
 
 window = sg.Window("My To-Do App",
-                   layout=[[clock],
+                   layout=[# [clock],
                            [label],
                            [input_box, add_button],
                            [list_box, edit_button, complete_button],
@@ -25,8 +25,8 @@ window = sg.Window("My To-Do App",
                    font=("Helvetica", 10))
 
 while True:
-    event, values = window.read(timeout=200)
-    window['clock'].update(value=time.strftime("%b %m, %Y %I:%M:%S"))
+    event, values = window.read(timeout=10)
+    # window['clock'].update(value=time.strftime("%b %m, %Y %I:%M:%S"))
     # print(1, event)
     # print(2, values)
     # print(3, values['todos'])
